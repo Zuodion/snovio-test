@@ -15,7 +15,8 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-env']
+          presets: ['@babel/preset-env'],
+          plugins: ['@babel/proposal-class-properties']
         }
       }, {
         test: /.vue$/,
@@ -27,7 +28,23 @@ module.exports = {
           'vue-style-loader',
           'css-loader'
         ]
-      }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        loader: 'file-loader'
+      },
+      {
+        test: /\.svg$/,
+        loader: 'file-loader'
+      },
     ]
   },
 
